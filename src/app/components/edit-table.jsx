@@ -32,24 +32,21 @@ var IconTable = React.createClass({
         <div className="get-help-time">
           <span className="fa fa-clock-o" />
           <TextField
-            hintText="今天 12:00"
-            defaultValue="今天 12:00" />
+            hintText="例如：今天 12:00" />
         </div>
         <div className="get-help-people" >
           <span className="fa fa-group" />
           <span>
             需要
             <TextField
-              hintText="1"
-              defaultValue="1"/>
+              hintText="0" />
             名超人
           </span>
         </div>
         <div className="get-help-reward" >
           <span className="fa fa-gift" />
           <TextField
-            hintText="一杯星巴克"
-            defaultValue="一杯星巴克"/>
+            hintText="例如：一杯星巴克" />
         </div>
         <div className="get-help-location">
           <span className="fa fa-map-marker" />
