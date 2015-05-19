@@ -19,10 +19,16 @@
   color: #c4c4c4;
   font-size: 16px;
   span.fa {
-    font-size: 26px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
     vertical-align: top;
-    padding-top: 9px;
-    padding-right: 12px;
+    margin-top: 9px;
+    margin-right: 12px;
+    color: @light-grey;
+    border-radius: 32px;
   }
   & > * {
     padding: 8px 32px;
@@ -32,11 +38,20 @@
     }
   }
   .get-help-title {
+    span.fa {
+      background-color: @accent-1-color;
+    }
     .mui-text-field {
       font-size: 22px;
     }
     .get-help-category {
-      padding: 8px 0 24px 33px;
+      padding: 8px 0 8px 33px;
+      cursor: pointer;
+      span.fa {
+        background-color: transparent;
+        line-height: 16px;
+        margin: 0;
+      }
       .tag {
         color: @light-grey;
         border-radius: 32px;
@@ -67,7 +82,20 @@
       }
     }
   }
+  .get-help-description {
+    span.fa {
+      background-color: @lavender;
+    }
+  }
+  .get-help-time {
+    span.fa {
+      background-color: @crap;
+    } 
+  }
   .get-help-people {
+    span.fa {
+      background-color: @grass;
+    }
     .mui-text-field-hint {
       width: 35px;
       text-align: center;
@@ -80,7 +108,15 @@
       }
     }
   }
+  .get-help-reward {
+    span.fa {
+      background-color: @crimson;
+    }
+  }
   .get-help-location {
+    span.fa {
+      background-color: @sky;
+    }
     .location {
       height: 48px;
       line-height: 48px;
