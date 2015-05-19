@@ -50,7 +50,7 @@ var IconTable = React.createClass({
         </div>
         <div className="get-help-location">
           <span className="fa fa-map-marker" />
-          <span className="location">(自動定位 OAO)</span>
+          <div className="location">(自動定位 OAO)</div>
         </div>
       </div>
     );
