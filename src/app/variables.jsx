@@ -25,6 +25,12 @@ var categories = {
   }
 };
 
+var right_buttons = {
+  'edit': 'pencil-square-o',
+  'location': 'location-arrow'
+}
+
 module.exports = {
-  categories: categories
+  categories: categories,
+  right_buttons: right_buttons
 };

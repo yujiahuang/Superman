@@ -11,7 +11,7 @@ var HelperList = React.createClass({
 
     return (
       <AppCanvas>
-        <Navbar title="{ Title }"/>
+        <Navbar title="{ Title }" rightButton="edit" />
         <GetHelpTable gender="female" />
       </AppCanvas>
     );

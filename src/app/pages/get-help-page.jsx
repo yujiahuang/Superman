@@ -11,7 +11,7 @@ var HelperList = React.createClass({
 
     return (
       <AppCanvas>
-        <Navbar title="發送求救訊號"/>
+        <Navbar title="發送求救訊號" />
         <EditTable gender="female" />
       </AppCanvas>
     );

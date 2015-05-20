@@ -11,7 +11,7 @@ var HelperList = React.createClass({
 
     return (
       <AppCanvas>
-        <Navbar title="市民困難列表"/>
+        <Navbar title="市民困難列表" rightButton="location" />
         <div className="filter">
           一公里內的運輸需求
         </div>
