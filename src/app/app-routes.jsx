@@ -16,7 +16,7 @@ var AppRoutes = (
     <Route name="landing" handler={LandingPage} />
     <Route name="help-list" handler={HelpListPage} />
     <Route name="get-help" handler={GetHelpPage} />
-    <Route name="help-content" handler={HelpContentPage} />
+    <Route name="help-content" path="/help-content/:contentId" handler={HelpContentPage} />
     <DefaultRoute handler={LandingPage}/>
   </Route>
 );
