@@ -37,7 +37,7 @@ var Navbar = React.createClass({
 
       rightButton = (
         <ToolbarGroup key={2} float="right" className="nav-button">
-          <FontIcon className={"fa fa-" + icon }/>
+          <FontIcon className={"fa fa-" + icon } onTouchTap={() => this.transitionTo('/help-map')}/>
         </ToolbarGroup>
       );
     }
