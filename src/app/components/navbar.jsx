@@ -7,13 +7,19 @@ var ToolbarGroup = mui.ToolbarGroup;
 var FontIcon = mui.FontIcon;
 var LeftNav = mui.LeftNav;
 
-var right_buttons = require('../variables.jsx').right_buttons;
+var { leftButtons, rightButtons } = require('../variables.jsx');
 
 var Navigation = require('react-router').Navigation;
 
 var Navbar = React.createClass({
 
   mixins: [Navigation],
+
+  getInitialState: function() {
+    return {
+      left: ''
+    };
+  },
 
   render: function() {
 
@@ -24,29 +30,44 @@ var Navbar = React.createClass({
       { route: 'root', text: '登出' },
     ];
 
-    var RightButton;
+    var rightButton;
     if (this.props.hasOwnProperty('rightButton')) {
 
-      var icon = right_buttons[this.props.rightButton];
-      console.log(icon);
+      var icon = rightButtons[this.props.rightButton];
 
-      RightButton = (
+      rightButton = (
         <ToolbarGroup key={2} float="right" className="nav-button">
           <FontIcon className={"fa fa-" + icon }/>
         </ToolbarGroup>
       );
     }
 
-    return (
-      <Toolbar>
+    var leftButton;
+    if (this.props.hasOwnProperty('leftButton')) {
+
+      var icon = leftButtons[this.props.leftButton];
+
+      leftButton = (
+        <ToolbarGroup key={0} float="left" className="nav-button">
+          <FontIcon className={"fa fa-" + icon } onTouchTap={() => this.transitionTo('/help-list')} />
+        </ToolbarGroup>
+      );
+    } else {
+      leftButton = (
         <ToolbarGroup key={0} float="left" className="nav-button">
           <FontIcon className="fa fa-bars" onTouchTap={this.showLeftNavClick} />
           <LeftNav ref="leftNav" docked={false} menuItems={menuItems} onChange={this.leavePage} />
         </ToolbarGroup>
+      );
+    }
+
+    return (
+      <Toolbar>
+        { leftButton }
         <ToolbarGroup className="toolbar-title" key={1} float="left">
           <span>{this.props.title}</span>
         </ToolbarGroup>
-        {RightButton}
+        { rightButton }
       </Toolbar>
     );
   },
