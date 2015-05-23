@@ -11,14 +11,7 @@ var IconTable = React.createClass({
 
   getInitialState: function() {
     return {
-      menuData: [
-        { title: '求好心壯丁幫我搬家', gender: 'female', reward: '一杯星巴克', distance: 0.3, category: '運輸' },
-        { title: '微積分家教', gender: 'female', reward: '手作蛋糕', distance: 0.1, category: '教學' },
-        { title: '電腦開不起來', gender: 'female', reward: '手作好人卡', distance: 0.25, category: '科技' },
-        { title: '炸蝦飯', gender: 'male', reward: 'kiss', distance: 0.65, category: '餐點' },
-        { title: '落鏈 QAQ', gender: 'female', reward: '五十嵐飲料', distance: 0.03, category: '修理' },
-        { title: '填問卷', gender: 'female', reward: '200P幣', distance: 0.15, category: '其他' }
-      ]
+      menuData: []
     };
   },
   componentDidMount: function() {
@@ -34,7 +27,7 @@ var IconTable = React.createClass({
             gender: 'female',
             reward: result.get('reward'),
             distance: 0,
-            category: '餐點'
+            category: result.get('category')
           });
           self.forceUpdate();
         });
