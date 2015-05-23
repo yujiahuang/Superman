@@ -111,7 +111,7 @@ var IconTable = React.createClass({
   render: function() {
     return (
       <div>
-        <div id="map-canvas" style={{ height: "100%", width: "100%"}}></div>
+        <div id="map-canvas" style={{ width: "100%", display: 'block', height: '720px'}}></div>
       </div>
     );
 
