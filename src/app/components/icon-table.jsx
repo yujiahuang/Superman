@@ -3,11 +3,14 @@ var mui = require('../../../node_modules/material-ui/lib/index');
 
 var MenuItem = mui.MenuItem;
 var FontIcon = mui.FontIcon;
+var Navigation = require('react-router').Navigation;
 
 var categories = require('../variables.jsx').categories;
 var Parse = require('parse').Parse;
 
 var IconTable = React.createClass({
+
+  mixins: [Navigation],
 
   getInitialState: function() {
     return {
@@ -15,6 +18,7 @@ var IconTable = React.createClass({
     };
   },
   componentDidMount: function() {
+    console.log(this.changeRoute);
     var Case = Parse.Object.extend('Case');
     var query = new Parse.Query(Case);
     var self = this;
@@ -23,24 +27,30 @@ var IconTable = React.createClass({
         console.log(results);
         results.forEach(function(result) {
           self.state.menuData.push({
+            id: result.id,
             title: result.get('title'), 
             gender: 'female',
             reward: result.get('reward'),
             distance: 0,
             category: result.get('category')
           });
-          self.forceUpdate();
         });
+        self.forceUpdate();
       }, function(err) {
 
       });
   },
+  viewHelp: function(id) {
+    var self = this;
+    return () => {
+      self.transitionTo('/help-content/' + id)
+    };
+  },
   render: function() {
-
+    var self = this;
     var menuItems = this.state.menuData.map(function(d){
-
       return (
-        <div className="item-table">
+        <div onClick={ self.viewHelp(d.id) } className="item-table">
           <div className={"help-category fa fa-" + categories[d.category].icon + " " + categories[d.category].color } />
           <div className="help-content" >
             <div className="help-title">{d.title}</div>
@@ -54,7 +64,6 @@ var IconTable = React.createClass({
       );
     });
     
-
     return (
       <div>
         {menuItems}
