@@ -29,7 +29,7 @@ var IconTable = React.createClass({
           self.state.menuData.push({
             id: result.id,
             title: result.get('title'), 
-            gender: 'female',
+            gender: result.get('gender'),
             reward: result.get('reward'),
             distance: 0,
             category: result.get('category')
@@ -49,8 +49,15 @@ var IconTable = React.createClass({
   render: function() {
     var self = this;
     var menuItems = this.state.menuData.map(function(d){
+      console.log(d.gender);
+      var background = {
+        backgroundRepeat: 'no-repeat',
+        backgroundImage: 'url(./images/' + d.gender + '.png)',
+        backgroundPosition: 'center left',
+        backgroundSize: '12px 100%'
+      };
       return (
-        <div onClick={ self.viewHelp(d.id) } className="item-table">
+        <div onClick={ self.viewHelp(d.id) } className="item-table" style={ background }>
           <div className={"help-category fa fa-" + categories[d.category].icon + " " + categories[d.category].color } />
           <div className="help-content" >
             <div className="help-title">{d.title}</div>
