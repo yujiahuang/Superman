@@ -3,9 +3,12 @@
   var Router = require('react-router');
   var AppRoutes = require('./app-routes.jsx');
   var injectTapEventPlugin = require('react-tap-event-plugin');
-
+  var Parse = require('parse').Parse;
+  var APP_KEY = 'uWLq7DHTAeBWeuOyM9DPkXY2zjZij4HsLEMMMqK7';
+  var API_KEY = 'yyoiZuZMWqFjrCbCfdf0Q2dKg0B5YyVQgpXuMxCP';
   //Needed for React Developer Tools
   window.React = React;
+  Parse.initialize(APP_KEY, API_KEY);
 
   //Needed for onTouchTap
   //Can go away when react 1.0 release
